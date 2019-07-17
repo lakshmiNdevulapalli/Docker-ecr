@@ -6,8 +6,9 @@ pipeline {
         stage('Image-Version Preaparation') {
           steps {
             script {
-                  commitHash = git rev-parse --short=7 HEAD,
-                  IMAGE = "$JOB_NAME:${commitHash}"
+                  //commitHash = git rev-parse --short=7 HEAD
+                  trimHash = sh(returnStdout: true, script: 'git rev-parse --short=7 HEAD')
+                  IMAGE = "$JOB_NAME:${trimHash}"
             }
           }
         }
