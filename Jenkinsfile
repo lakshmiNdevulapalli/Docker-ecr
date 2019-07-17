@@ -16,7 +16,7 @@ pipeline {
         }
       }
     }
-    stage('Docker Push') {
+     stage('Docker Push') {
       steps {
             sh '''docker.withDockerRegistry(credentialsId: \'ecr:us-west-2:40f4bd13-2224-43b8-9956-2fd199895b3d\', url: \'091376544728.dkr.ecr.us-west-2.amazonaws.com/test-ecr\' ,toolName: \'docker\') {
               docker.image($IMAGE).push()'''
