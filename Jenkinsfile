@@ -28,7 +28,7 @@ pipeline {
        steps {
          script {
                 docker.withDockerRegistry(credentialsId: 'ecr:us-west-2:40f4bd13-2224-43b8-9956-2fd199895b3d', '091376544728.dkr.ecr.us-west-2.amazonaws.com/test-ecr', toolName: 'docker'){
-                docker.image("$JOB_NAME:$VERSION").push()
+                docker.image("docker-ecr:$VERSION").push()
             }
          }
        }
