@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  environment {
+    VERSION = 'latest'
+  }
   stages {
     stage('Image Preaparation') {
       parallel {
@@ -7,15 +10,15 @@ pipeline {
           steps {
             script {
                   //commitHash = git rev-parse --short=7 HEAD
-                  trimHash = sh(returnStdout: true, script: 'git rev-parse --short=7 HEAD')
-                  echo "$trimHash"
+                  //trimHash = sh(returnStdout: true, script: 'git rev-parse --short=7 HEAD')
+                  VERSION = "${BUILD_ID}"
             }
           }
         }
         stage('Build Image') {
           steps {
             script {
-                docker.build("${IMAGE}", "./Dockerfile")
+                docker.build("Docker-ecr:$VERSION", "./Dockerfile")
             }
           }
         }
@@ -25,7 +28,7 @@ pipeline {
        steps {
          script {
                 docker.withDockerRegistry(credentialsId: 'ecr:us-west-2:40f4bd13-2224-43b8-9956-2fd199895b3d', '091376544728.dkr.ecr.us-west-2.amazonaws.com/test-ecr', toolName: 'docker'){
-                docker.image(${IMAGE}).push()
+                docker.image("Docker-ecr:$VERSION").push()
             }
          }
        }
