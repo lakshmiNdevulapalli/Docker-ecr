@@ -8,8 +8,7 @@ pipeline {
             script {
                   //commitHash = git rev-parse --short=7 HEAD
                   trimHash = sh(returnStdout: true, script: 'git rev-parse --short=7 HEAD')
-                  IMAGE = "$JOB_NAME:${trimHash}"
-                  sh(script: 'echo ${IMAGE}')
+                  echo "$trimHash"
             }
           }
         }
