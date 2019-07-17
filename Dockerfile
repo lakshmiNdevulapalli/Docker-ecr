@@ -5,5 +5,6 @@ RUN npm install express
 EXPOSE 3000
 
 COPY app.js .
+COPY test.html .
 
 CMD node app.js
