@@ -22,6 +22,5 @@ pipeline {
               docker.image($IMAGE).push()'''
             }
         }
-      }
     }
-  }
+}
