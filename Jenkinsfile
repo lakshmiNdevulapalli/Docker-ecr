@@ -18,7 +18,7 @@ pipeline {
         stage('Build Image') {
           steps {
             script {
-                docker.build("$JOB_NAME:$VERSION", ".")
+                docker.build("docker-ecr:$VERSION", ".")
             }
           }
         }
