@@ -6,7 +6,7 @@ pipeline {
         stage('Image-Version Preaparation') {
           steps {
             script {
-              VERSION = "${BUILD_ID}"
+              VERSION = "${BUILD_ID}:latest"
             }
 
           }
@@ -14,7 +14,7 @@ pipeline {
         stage('Build Image') {
           steps {
             script {
-              docker.build("test-ecr:$VERSION:latest", ".")
+              docker.build("test-ecr:$VERSION", ".")
             }
 
           }
