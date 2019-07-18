@@ -14,7 +14,7 @@ pipeline {
         stage('Build Image') {
           steps {
             script {
-              docker.build("test-ecr:$VERSION", ".")
+              docker.build("test-ecr:$VERSION","test-ecr:latest", ".")
             }
 
           }
