@@ -13,10 +13,7 @@ pipeline {
         }
         stage('Build Image') {
           steps {
-            script {
-              sh(docker build -t test-ecr:"${BUILD_ID}" -t test-ecr:latest .)
-            }
-
+            sh 'docker build -t test-ecr:"${BUILD_ID}" -t test-ecr:latest .'
           }
         }
       }
