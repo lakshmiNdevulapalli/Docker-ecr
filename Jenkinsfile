@@ -31,13 +31,12 @@ pipeline {
 
           }
         }
-        stage('Run Terraform') {
+        stage('Terraform Plam') {
           steps {
-            script {
-              terraform init
-              terraform apply
+            withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: '40f4bd13-2224-43b8-9956-2fd199895b3d', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                sh 'terraform init'
+                sh 'terraform plan -out tfplan'
             }
-
           }
         }
       }
