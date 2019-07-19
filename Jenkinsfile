@@ -51,6 +51,7 @@ pipeline {
         script {
           def userApproval = input(id: 'confirm', message: 'Apply Terraform?', parameters: [[$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply terraform', name: 'confirm']])
         }
+
       }
     }
   }
