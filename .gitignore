@@ -1,2 +1,4 @@
 mykey
 mykey.pub
+terraform.tfstate
+lock.json
