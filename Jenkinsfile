@@ -37,7 +37,7 @@ pipeline {
 
       }
     }
-    stage('Terrafrom Approval') {
+    stage('Terrafrom Apply') {
       steps {
         script {
           sh 'echo testing'
@@ -45,7 +45,7 @@ pipeline {
 
       }
     }
-    stage('Terraform Apply') {
+    stage('Terraform Approval') {
       steps {
         script {
           sh 'echo testing'
