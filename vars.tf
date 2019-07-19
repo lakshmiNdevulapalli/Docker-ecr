@@ -13,8 +13,6 @@ variable "ECS_INSTANCE_TYPE" {
 variable "ECS_AMIS" {
   type = "map"
   default = {
-      us-east-1 = "ami-1924770e"
-      us-west-2 = "ami-84e236fc"
-      eu-west-1 = "ami-c8337dbb"
+      us-west-2 = "ami-082b5a644766e0e6f"
   }
 }
