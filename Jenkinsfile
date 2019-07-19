@@ -37,24 +37,20 @@ pipeline {
 
       }
     }
-    stage('Terrafrom Apply') {
-      parallel {
-        stage('Terrafrom Apply') {
-          steps {
-            script {
-              sh 'echo testing'
-            }
-
-          }
+    stage('Terrafrom Approval') {
+      steps {
+        script {
+          sh 'echo testing'
         }
-        stage('Terraform approval') {
-          steps {
-            script {
-              sh 'testing again'
-            }
 
-          }
+      }
+    }
+    stage('Terraform Apply') {
+      steps {
+        script {
+          sh 'echo testing'
         }
+
       }
     }
   }
