@@ -39,19 +39,6 @@ pipeline {
             }
           }
         }
-        stage('Terraform Approval') {
-          steps {
-            script {
-              sh 'echo Hi'
-            }
-
-          }
-        }
-        stage('Terraform Apply') {
-          steps {
-            sh 'echo testing'
-          }
-        }
       }
     }
   }
