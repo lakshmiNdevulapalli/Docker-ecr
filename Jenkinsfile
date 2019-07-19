@@ -41,7 +41,7 @@ pipeline {
     stage('Terrafrom Apply') {
       steps {
         script {
-          def approval = input(id: 'confirm', message: '')
+          sh 'terraform apply'
         }
 
       }
@@ -49,9 +49,8 @@ pipeline {
     stage('Terraform Approval') {
       steps {
         script {
-          sh 'echo testing'
+          def userApproval = input(id: 'confirm', message: 'Apply Terraform?', parameters: [[$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply terraform', name: 'confirm']])
         }
-
       }
     }
   }
