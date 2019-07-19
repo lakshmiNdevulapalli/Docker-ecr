@@ -8,11 +8,13 @@ variable "PATH_TO_PUBLIC_KEY" {
   default = "/Users/baludevulapalli/Docker-ecr/mykey.pub"
 }
 variable "ECS_INSTANCE_TYPE" {
-  default = "t2.mirco"
+  default = "t2.micro"
 }
 variable "ECS_AMIS" {
   type = "map"
   default = {
-      us-west-2 = "ami-0f2176987ee50226e"
+    us-east-1 = "ami-1924770e"
+    us-west-2 = "ami-56ed4936"
+    eu-west-1 = "ami-c8337dbb"
   }
 }
