@@ -29,28 +29,28 @@ pipeline {
 
       }
     }
-    stage('Terraform Init') {
+    stage('Terraform Plan') {
+      steps {
+        withCredentials(bindings: [[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: '40f4bd13-2224-43b8-9956-2fd199895b3d', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+          sh 'terraform init'
+        }
+
+      }
+    }
+    stage('Terrafrom Apply') {
       parallel {
-        stage('Terraform Plan') {
+        stage('Terrafrom Apply') {
           steps {
-            withCredentials(bindings: [[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: '40f4bd13-2224-43b8-9956-2fd199895b3d', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-              sh 'terraform init'
+            script {
+              sh 'echo testing'
             }
 
           }
         }
-        stage('Terraform Approval') {
+        stage('Terraform approval') {
           steps {
             script {
-              sh 'echo Testing'
-            }
-
-          }
-        }
-        stage('Terraform Apply') {
-          steps {
-            script {
-              sh 'echo testing again'
+              sh 'testing again'
             }
 
           }
