@@ -51,7 +51,6 @@ pipeline {
         script {
           sh 'terraform destory -input=false -auto-approve "tfplan"'
         }
-
       }
     }
   }
