@@ -14,7 +14,6 @@ resource "aws_ecs_task_definition" "myapp-task-definition" {
 
 resource "aws_elb" "myapp-elb" {
   name = "myapp-elb"
-  availability_zones = ["us-west-2a", "us-west-2b", "us-west-2c"]
 
   listener {
     instance_port = 3000
@@ -36,7 +35,7 @@ resource "aws_elb" "myapp-elb" {
   connection_draining = true
   connection_draining_timeout = 400
 
- //subnets = ["${aws_subnet.main-public-1.id}","${aws_subnet.main-public-2.id}"]
+  subnets = ["${aws_subnet.main-public-1.id}","${aws_subnet.main-public-2.id}"]
   security_groups = ["${aws_security_group.myapp-elb-securitygroup.id}"]
 
   tags =  {
