@@ -4,8 +4,10 @@ pipeline {
     stage('Terraform Plan') {
       steps {
         withCredentials(bindings: [[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: '40f4bd13-2224-43b8-9956-2fd199895b3d', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-          sh 'terraform init'
-          sh 'terraform plan -out=tfplan -input=false'
+          sh '''sh \'terraform init\'
+sh \'terraform destory\'
+         '''
+          sh 'sh \'terraform plan -out=tfplan -input=false\''
         }
 
       }
