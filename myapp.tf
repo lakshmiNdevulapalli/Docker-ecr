@@ -14,6 +14,7 @@ resource "aws_ecs_task_definition" "myapp-task-definition" {
 
 resource "aws_elb" "myapp-elb" {
   name = "myapp-elb"
+  availability_zones = ["us-west-2a", "us-west-2b", "us-west-2c"]
 
   listener {
     instance_port = 3000
