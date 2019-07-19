@@ -36,7 +36,7 @@ pipeline {
 
           }
         }
-        stage('Terraform Plam') {
+        stage('Terraform Plan') {
           steps {
             container('terraform') {
               sh 'terraform init'
