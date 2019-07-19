@@ -33,10 +33,26 @@ pipeline {
       parallel {
         stage('Terraform Plan') {
           steps {
-            withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: '40f4bd13-2224-43b8-9956-2fd199895b3d', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-                sh 'terraform init'
-                //sh 'terraform plan'
+            withCredentials(bindings: [[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: '40f4bd13-2224-43b8-9956-2fd199895b3d', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+              sh 'terraform init'
             }
+
+          }
+        }
+        stage('Terraform Approval') {
+          steps {
+            script {
+              sh 'echo Testing'
+            }
+
+          }
+        }
+        stage('Terraform Apply') {
+          steps {
+            script {
+              sh 'echo testing again'
+            }
+
           }
         }
       }
