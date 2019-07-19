@@ -38,7 +38,7 @@ pipeline {
 
       }
     }
-    stage('Terrafrom Approval') {
+    stage('Terrafrom Apply') {
       steps {
         script {
           def approval = input(id: 'confirm', message: '')
@@ -46,7 +46,7 @@ pipeline {
 
       }
     }
-    stage('Terraform Apply') {
+    stage('Terraform Approval') {
       steps {
         script {
           sh 'echo testing'
