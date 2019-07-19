@@ -10,7 +10,7 @@ resource "aws_launch_configuration" "ecs_example_launchconfig" {
   security_groups = ["${aws_security_group.ecs-securitygroup.id}"]
   user_data = "#!/bin/bash\necho 'ECS_CLUSTER=example-cluster' > /etc/ecs/ecs.config\nstart ecs"
   lifecycle {
-      creaate_before_destroy = true
+      create_before_destroy = true
       }
 }
 resource "aws_autoscaling_group" "ecs-example-autoscaling" {
