@@ -12,7 +12,7 @@ resource "aws_security_group" "ecs-securitygroup" {
       from_port = 3000
       to_port = 3000
       protocol = "tcp"
-      security_groups = ["${aws_security_group.emyapp-elb-securitygroup.id}"]
+      security_groups = ["${aws_security_group.myapp-elb-securitygroup.id}"]
   }
   ingress {
       from_port = 22
