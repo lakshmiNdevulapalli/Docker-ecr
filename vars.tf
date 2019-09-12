@@ -14,7 +14,7 @@ variable "ECS_AMIS" {
   type = "map"
   default = {
     us-east-1 = "ami-1924770e"
-    us-west-2 = "	ami-033a024887b09d8a8"
+    us-west-2 = "ami-033a024887b09d8a8"
     eu-west-1 = "ami-c8337dbb"
   }
 }
