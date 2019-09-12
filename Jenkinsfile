@@ -49,7 +49,7 @@ pipeline {
     stage('Destroy Terraform') {
       steps {
         script {
-          sh 'terraform destory -input=false -auto-approve "tfplan"'
+          sh 'terraform destroy -input=false -auto-approve "tfplan"'
         }
 
       }
