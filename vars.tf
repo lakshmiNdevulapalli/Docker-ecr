@@ -1,5 +1,5 @@
 variable "AWS_REGION" {
-  default = "us-west-2"
+  default = "us-east-1"
 }
 variable "PATH_TO_PRIVATE_KEY" {
   default = "/Users/baludevulapalli/Docker-ecr/mykey"
@@ -13,7 +13,7 @@ variable "ECS_INSTANCE_TYPE" {
 variable "ECS_AMIS" {
   type = "map"
   default = {
-    us-east-1 = "ami-1924770e"
+    us-east-1 = "ami-02ca3cadbcb293e21"
     us-west-2 = "ami-033a024887b09d8a8"
     eu-west-1 = "ami-c8337dbb"
   }
