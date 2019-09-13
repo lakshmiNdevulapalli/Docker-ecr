@@ -38,7 +38,7 @@ pipeline {
     stage('Docker Push') {
       steps {
         script {
-          docker.withRegistry("https://091376544728.dkr.ecr.us-east-1.amazonaws.com/myapp", "ecr:us-west-2:40f4bd13-2224-43b8-9956-2fd199895b3d") {
+          docker.withRegistry("https://091376544728.dkr.ecr.us-east-1.amazonaws.com/myapp", "ecr:us-east-1:7f25cb67-cb93-482c-83d8-c6677c54a2d1") {
             docker.image("myapp:$VERSION").push()
             docker.image("myapp").push("latest")
           }
