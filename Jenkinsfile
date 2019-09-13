@@ -7,15 +7,13 @@ pipeline {
           sh 'terraform init'
           sh 'terraform plan -out=tfplan -input=false'
         }
-
       }
     }
     stage('Terraform Apply') {
       steps {
-        script {
+        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AKIARKRTXNPMN5I4PRF4', credentialsId: 'c84f1e90-6917-4bb4-adeb-b71447ca0a7b', secretKeyVariable: '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']]){
           sh 'terraform apply -input=false -auto-approve "tfplan"'
         }
-
       }
     }
     stage('Image Preaparation') {
@@ -48,10 +46,9 @@ pipeline {
     }
     stage('Destroy Terraform') {
       steps {
-        script {
+        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AKIARKRTXNPMN5I4PRF4', credentialsId: 'c84f1e90-6917-4bb4-adeb-b71447ca0a7b', secretKeyVariable: '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']]){
           sh 'terraform destroy -input=false -auto-approve "tfplan"'
         }
-
       }
     }
   }
