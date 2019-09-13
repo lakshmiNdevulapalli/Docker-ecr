@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Terraform Plan') {
       steps {
-        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: '7f25cb67-cb93-482c-83d8-c6677c54a2d1', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]){
+        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AKIARKRTXNPMN5I4PRF4', credentialsId: 'c84f1e90-6917-4bb4-adeb-b71447ca0a7b', secretKeyVariable: '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']]){
           sh 'terraform init'
           sh 'terraform plan -out=tfplan -input=false'
         }
@@ -38,7 +38,7 @@ pipeline {
     stage('Docker Push') {
       steps {
         script {
-          docker.withRegistry("https://091376544728.dkr.ecr.us-east-1.amazonaws.com/myapp", "ecr:us-east-1:7f25cb67-cb93-482c-83d8-c6677c54a2d1") {
+          docker.withRegistry("https://091376544728.dkr.ecr.us-east-1.amazonaws.com/myapp", "ecr:us-east-1:c84f1e90-6917-4bb4-adeb-b71447ca0a7b") {
             docker.image("myapp:$VERSION").push()
             docker.image("myapp").push("latest")
           }
