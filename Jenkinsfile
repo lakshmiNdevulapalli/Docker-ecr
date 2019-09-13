@@ -4,15 +4,15 @@ pipeline {
     stage('Terraform Plan') {
       steps {
         script{
-          //sh 'terraform init'
-          //sh 'terraform plan -out=tfplan -input=false'
+          sh 'terraform init'
+          sh 'terraform plan -out=tfplan -input=false'
         }
       }
     }
     stage('Terraform Apply') {
       steps {
         script {
-          //sh 'terraform apply -input=false -auto-approve "tfplan"'
+          sh 'terraform destroy -input=false -auto-approve "tfplan"'
         }
         
       }
@@ -48,7 +48,7 @@ pipeline {
     stage('Destroy Terraform') {
       steps {
         script {
-          sh 'terraform destroy -input=false -auto-approve "tfplan"'
+          //sh 'terraform destroy -input=false -auto-approve "tfplan"'
         }
 
       }
