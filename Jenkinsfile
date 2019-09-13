@@ -4,15 +4,15 @@ pipeline {
     stage('Terraform Plan') {
       steps {
         script{
-          #sh 'terraform init'
-          #sh 'terraform plan -out=tfplan -input=false'
+          //sh 'terraform init'
+          //sh 'terraform plan -out=tfplan -input=false'
         }
       }
     }
     stage('Terraform Apply') {
       steps {
         script {
-          #sh 'terraform apply -input=false -auto-approve "tfplan"'
+          //sh 'terraform apply -input=false -auto-approve "tfplan"'
         }
         
       }
